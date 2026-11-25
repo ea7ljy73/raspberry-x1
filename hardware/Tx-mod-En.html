@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TX Modification — Raspberry X1 (unofficial)</title>
+    <meta name="description" content="Independent guide to enable transmission on the HamGeek Raspberry X1. Unofficial project.">
+    <meta name="author" content="EA7LJY">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --bg: #f8f9fa;
+            --text: #333;
+            --muted: #6c757d;
+            --border: #ddd;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--bg);
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        header h1 { margin: 0; font-size: 2rem; }
+        header p { margin: 0.5rem 0 0; color: #bdc3c7; }
+        header .badge {
+            display: inline-block;
+            margin: 0.75rem 0.25rem 0;
+            padding: 0.2rem 0.6rem;
+            border: 1px solid rgba(255,255,255,0.5);
+            border-radius: 999px;
+            font-size: 0.8rem;
+        }
+        header a { color: white; }
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        h2 {
+            color: var(--primary);
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+        h3 { color: var(--secondary); margin-top: 1.5rem; }
+        a { color: var(--secondary); }
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.08);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .table-wrap { overflow-x: auto; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            background: white;
+            font-size: 0.95rem;
+            min-width: 520px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+        th {
+            background-color: var(--primary);
+            color: white;
+            white-space: nowrap;
+        }
+        tbody tr:hover { background-color: #f1f1f1; }
+        .warning {
+            background-color: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        .danger {
+            background-color: #f8d7da;
+            border-left: 5px solid var(--accent);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        .info {
+            background-color: #e7f3fe;
+            border-left: 5px solid var(--secondary);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        .danger h2 { border-bottom-color: var(--accent); margin-top: 0; }
+        ul, ol { padding-left: 1.5rem; }
+        li { margin: 0.3rem 0; }
+        code {
+            background-color: #eee;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 0.9em;
+        }
+        .muted { color: var(--muted); font-size: 0.9rem; }
+        .toc { columns: 2; column-gap: 2rem; }
+        .toc li { break-inside: avoid; }
+        footer {
+            border-top: 1px solid var(--border);
+            margin-top: 2rem;
+            padding: 1.5rem 0 2.5rem;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.5rem; }
+            .toc { columns: 1; }
+            .card { padding: 1rem; }
+        }
+        @media print {
+            body { background: white; }
+            .card { box-shadow: none; border: 1px solid var(--border); }
+            .toc { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>TX Modification — Raspberry X1</h1>
+        <p>Independent guide to enable transmission · Based on Rev. 2.0</p>
+        <span class="badge">Unofficial project</span>
+        <span class="badge">Status: review draft</span>
+        <span class="badge">GPL-3.0</span>
+        <span class="badge">by EA7LJY</span>
+        <p><a href="Tx-mod-Es.html" hreflang="es" lang="es">Ver en español</a></p>
+    </header>
+
+    <div class="container">
+
+
+        <div class="danger">
+            <strong>English.</strong> This document is independent and <strong>not affiliated with
+            or endorsed by</strong> HamGeek, the Raspberry X1 designer, or Raspberry Pi Ltd. The
+            information is provided <strong>"as is"</strong>, without warranty of any kind.
+            <strong>The author accepts no liability for damage, loss or error — direct or indirect
+            — arising from its use</strong>, including damage to equipment, antennas, other devices
+            or persons. This modification involves RF and up to ~5&nbsp;W: always work into a
+            <strong>dummy load with a power/SWR meter</strong>, use a current-limited supply and
+            follow ESD precautions. <strong>Transmitting requires an amateur radio licence.</strong>
+            <hr>
+            <strong>Español.</strong> Este documento es independiente y <strong>no está afiliado ni
+            respaldado</strong> por HamGeek, por el diseñador de la Raspberry X1 ni por Raspberry Pi
+            Ltd. La información se ofrece <strong>«tal cual»</strong>, sin garantía de ningún tipo.
+            <strong>El autor no se hace responsable de daños, pérdidas o errores —directos o
+            indirectos— derivados del uso de esta información.</strong> La modificación implica RF y
+            potencias de hasta ~5&nbsp;W: trabaja con <strong>carga fantasma y vatímetro</strong>.
+            <strong>Transmitir requiere licencia de radioaficionado.</strong>
+        </div>
+<div class="card">
+<h2 id="contents">Contents</h2>
+<ol>
+<li><a href="#1-summary">Summary</a></li>
+<li><a href="#2-state-of-a-production-unit">State of a production unit</a></li>
+<li><a href="#3-before-you-start">Before you start</a></li>
+<li><a href="#4-parts-to-add">Parts to add</a></li>
+<li><a href="#5-low-pass-filters-lpf">Low-pass filters (LPF)</a></li>
+<li><a href="#6-power-stage-and-transformers">Power stage and transformers</a></li>
+<li><a href="#7-swr-bridge">SWR bridge</a></li>
+<li><a href="#8-tx-stage-supply">TX stage supply</a></li>
+<li><a href="#9-bring-up-and-verification">Bring-up and verification</a></li>
+<li><a href="#10-points-to-verify">Points to verify</a></li>
+<li><a href="#11-sources">Sources</a></li>
+</ol>
+
+</div>
+<div class="card">
+<h2 id="1-summary">1. Summary</h2>
+<p>The main board is built for receive. To transmit you must <strong>fit the final transistor, the
+transformers, the low-pass filters, the SWR bridge and the six relays</strong>, and remove the factory
+receive jumper. The relays are driven by the firmware through the <strong>PCA9555</strong> I²C expander.</p>
+<p>TX chain: RF from the FST3253 (<code>TXSIG</code>) → <strong>Q5</strong> µPC1678G (pre-amp) → <strong>Q6</strong> RD01MUS1 (driver) →
+<strong>T4</strong> → <strong>Q4</strong> RD16HHF1 (final) → <strong>T3</strong> → <strong>RELAY-6</strong> (TX/RX) → band LPF (<strong>RELAY-1…5</strong>) →
+<strong>T1/T2</strong> bridge → antenna.</p>
+<p>On receive, <strong>RELAY-6</strong> routes the antenna (already filtered by the band LPF) to the mixer input
+(<code>RXFST</code> → D1 → FST3253).</p>
+
+</div>
+<div class="card">
+<h2 id="2-state-of-a-production-unit">2. State of a production unit</h2>
+<p>Visual inspection of a production unit (board <em>MAIN UNIT v2.0</em>, RX-only version):</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Block</th>
+<th>Fitted</th>
+<th>Missing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Final</td>
+<td>Q4 thermal pad, C75, R50, R51, C82, FB5, C80, C86, R55</td>
+<td><strong>Q4</strong> RD16HHF1, <strong>T3</strong>, <strong>C76</strong> (100 µF)</td>
+</tr>
+<tr>
+<td>Driver</td>
+<td>Q6 RD01MUS1, R56–R59, C83, C87, C88, FB6, R49</td>
+<td><strong>T4</strong></td>
+</tr>
+<tr>
+<td>Pre-amp</td>
+<td>Q5 µPC1678G, R52–R54, C79, C84, C85, FB4</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Switching</td>
+<td>U11 78M09, Q2 SI2301, Q3 2N7002, R47, R48, C72–C74, C77, C78</td>
+<td><strong>RELAY-6</strong></td>
+</tr>
+<tr>
+<td>LPF</td>
+<td>capacitors C47–C70</td>
+<td><strong>RELAY-1…5</strong>, <strong>L1…L15</strong></td>
+</tr>
+<tr>
+<td>SWR bridge</td>
+<td>D3, D4, R37–R46, C63–C66, ADS1115 (U10)</td>
+<td><strong>T1</strong>, <strong>T2</strong></td>
+</tr>
+</tbody>
+</table></div>
+<div class="danger">
+<p>⚠️ <strong>Receive jumper.</strong> From the factory a <strong>red wire</strong> connects the antenna connector (BNC) straight
+to the receiver input (D1), bypassing relays and filters. <strong>Remove it when fitting RELAY-6 and the
+LPF relays.</strong> Transmitting with it in place feeds the power into the receive mixer and destroys
+the FST3253.</p>
+<p>Consequence for receive: while that jumper is there the receiver has <strong>no RF filtering at all</strong>
+in front of the mixer.</p>
+</div>
+
+</div>
+<div class="card">
+<h2 id="3-before-you-start">3. Before you start</h2>
+<p><strong>Recommended tools and equipment</strong></p>
+<ul>
+<li>Soldering station (hot air and fine tip), flux and loupe/microscope.</li>
+<li>Multimeter, continuity tester and, if possible, oscilloscope and spectrum analyser.</li>
+<li><strong>Dummy load</strong>, <strong>power/SWR meter</strong> and a power supply with adjustable current limit.</li>
+<li>ESD wrist strap and mat.</li>
+</ul>
+<p><strong>Preliminary checks</strong></p>
+<ul>
+<li>Identify your <strong>board revision</strong>. This guide is based on Rev. 2.0 (<em>MAIN UNIT v2.0</em>).</li>
+<li>Check which parts your unit actually has against the table in <a href="#2-state-of-a-production-unit">§2</a>.</li>
+<li>Make sure the supply delivers 13.8 V and at least 2 A before connecting the power stage.</li>
+</ul>
+
+</div>
+<div class="card">
+<h2 id="4-parts-to-add">4. Parts to add</h2>
+<p>The shopping list, with quantities and spares, is in <a href="Lista-compra-TX.html"><code>Lista-compra-TX.md</code></a>
+(Spanish).</p>
+<h3 id="41-semiconductors">4.1. Semiconductors</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Ref.</th>
+<th>Part</th>
+<th>Qty</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Q4</td>
+<td><strong>RD16HHF1</strong> (TO-220)</td>
+<td>1</td>
+<td>Power final (~5 W). The tab is the source (ground): no insulator needed.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Q5 (µPC1678G), Q6 (RD01MUS1), Q2 (SI2301), Q3 (2N7002) and diodes D3/D4 (1N5711WS) <strong>are already
+fitted</strong>. The production BOM lists <code>PT9926-SOP8</code> for Q5: that is a BOM error (a dual MOSFET); the
+fitted part is the <strong>µPC1678G</strong> in the schematic.</p>
+<h3 id="42-relays">4.2. Relays</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Ref.</th>
+<th>Part</th>
+<th>Qty</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RELAY-1…5</td>
+<td><strong>Hongfa HFD4/5-SR</strong> (SMD, DPDT, 5 V coil)</td>
+<td>5</td>
+<td>LPF selection</td>
+</tr>
+<tr>
+<td>RELAY-6</td>
+<td><strong>Hongfa HFD4/5-SR</strong></td>
+<td>1</td>
+<td>TX/RX switching</td>
+</tr>
+</tbody>
+</table></div>
+<p>The schematic calls them <code>G6K-2Y-Y</code>, but the <strong>board footprint is <code>RELAY-SMD_HFD4/5-SR</code></strong> and the
+production BOM gives <strong>HFD4/5-S</strong> (LCSC C64399). An Omron <strong>G6K-2F-Y DC5</strong> is electrically
+equivalent (5 V coil, ~21 mA); check that it fits the footprint before buying it.</p>
+<p>The coils are driven directly from the PCA9555 outputs (~21 mA each). Check that every relay
+switches firmly when changing band.</p>
+<h3 id="43-cores-and-windings">4.3. Cores and windings</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Ref.</th>
+<th>Core</th>
+<th>Qty</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>L1–L3, L7–L9</td>
+<td><strong>T37-2</strong> (red)</td>
+<td>6</td>
+<td>160 and 80 m LPF inductors</td>
+</tr>
+<tr>
+<td>L4–L6, L10–L15</td>
+<td><strong>T37-6</strong> (yellow)</td>
+<td>9</td>
+<td>40 to 10 m LPF inductors</td>
+</tr>
+<tr>
+<td>T3, T4</td>
+<td><strong>FT37-43</strong></td>
+<td>2</td>
+<td>Bifilar transformers (footprint <code>FT37-43 BIF</code>)</td>
+</tr>
+<tr>
+<td>T1, T2</td>
+<td><strong>FT23-43</strong></td>
+<td>2</td>
+<td>SWR bridge</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="44-passives">4.4. Passives</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Ref.</th>
+<th>Part</th>
+<th>Qty</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C76</td>
+<td>Electrolytic 100 µF / 25 V, radial Ø5 mm, 2 mm pitch</td>
+<td>1</td>
+<td>+13.8 V decoupling of the final</td>
+</tr>
+</tbody>
+</table></div>
+<p>The filter capacitors (C47–C70) are already fitted. If you ever replace one, use <strong>C0G/NP0</strong>.</p>
+
+</div>
+<div class="card">
+<h2 id="5-low-pass-filters-lpf">5. Low-pass filters (LPF)</h2>
+<p>Each filter is a 7-element low-pass (4 shunt capacitors and 3 inductors). The band of each one is
+derived from its cut-off frequency, calculated from the schematic values
+(T37-2: A<sub>L</sub> ≈ 4.0 nH/turn²; T37-6: A<sub>L</sub> ≈ 3.0 nH/turn²):</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Relay</th>
+<th>PCA9555 line</th>
+<th>Band</th>
+<th>Core and turns</th>
+<th>Inductance</th>
+<th>Capacitors</th>
+<th>Approx. cut-off</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RELAY-1</td>
+<td>BAND1</td>
+<td><strong>160 m</strong></td>
+<td>T37-2: L1 32, L2 37, L3 32</td>
+<td>4.1 / 5.5 / 4.1 µH</td>
+<td>C47 820p, C48 2.2n, C49 2.2n, C50 820p</td>
+<td>2.9 MHz</td>
+</tr>
+<tr>
+<td>RELAY-3</td>
+<td>BAND2</td>
+<td><strong>80 m</strong></td>
+<td>T37-2: L7 22, L8 27, L9 22</td>
+<td>1.9 / 2.9 / 1.9 µH</td>
+<td>C55 470p, C56 1.2n, C57 1.2n, C58 470p</td>
+<td>5.4 MHz</td>
+</tr>
+<tr>
+<td>RELAY-5</td>
+<td>BAND3</td>
+<td><strong>60–40 m</strong></td>
+<td>T37-6: L13 21, L14 24, L15 21</td>
+<td>1.3 / 1.7 / 1.3 µH</td>
+<td>C67 270p, C68 680p, C69 680p, C70 270p</td>
+<td>9.3 MHz</td>
+</tr>
+<tr>
+<td>RELAY-2</td>
+<td>BAND4</td>
+<td><strong>30–20 m</strong></td>
+<td>T37-6: L4 16, L5 17, L6 16</td>
+<td>0.77 / 0.87 / 0.77 µH</td>
+<td>C51 180p, C52 390p, C53 390p, C54 180p</td>
+<td>17 MHz</td>
+</tr>
+<tr>
+<td>RELAY-4</td>
+<td>BAND5</td>
+<td><strong>17–10 m</strong></td>
+<td>T37-6: L10 10, L11 11, L12 10</td>
+<td>0.30 / 0.36 / 0.30 µH</td>
+<td>C59 120p, C60 220p, C61 220p, C62 120p</td>
+<td>36 MHz</td>
+</tr>
+</tbody>
+</table></div>
+<div class="info">
+<p>Relay numbering <strong>does not follow band order</strong>. The X1 Custom firmware already uses this mapping
+(LPF1 = 160 m, LPF2 = 80 m, LPF3 = 40 m, LPF4 = 30–20 m, LPF5 = 17–10 m).</p>
+<p><em>Correction to earlier versions of this guide, which shifted the bands by one position
+(80/40/30/20/10 m).</em></p>
+</div>
+<p><strong>Winding:</strong> <strong>0.4 mm</strong> enamelled wire (AWG 26), turns spread around the whole toroid. One "turn" is
+each pass of the wire through the hole. If you have an analyser (NanoVNA), <strong>measure each filter</strong>:
+insertion loss &lt; 0.5 dB in band and 2nd-harmonic rejection &gt; 40 dB. Adjust by spreading or
+compressing turns.</p>
+
+</div>
+<div class="card">
+<h2 id="6-power-stage-and-transformers">6. Power stage and transformers</h2>
+<ul>
+<li><strong>Q5 → Q6 → Q4</strong> form the amplifier chain. Q4 is the final (RD16HHF1, ~5 W) and Q6 its driver
+  (RD01MUS1).</li>
+<li><strong>Q4</strong> is screwed (M3) onto its thermal pad against the chassis/heatsink, with thermal paste. It
+  dissipates several watts: never transmit without it properly fixed.</li>
+<li><strong>T3 and T4</strong> are <strong>bifilar</strong> transformers on FT37-43 (footprint <code>FT37-43 BIF</code>, 4 pins; the board
+  sets the connections). The schematic gives no turns. Starting values (estimated, not verified):
+  <strong>8–10 bifilar turns</strong> of 0.3–0.4 mm wire on each. With the 1:4 connection the schematic suggests,
+  Q4's drain sees ~12.5 Ω, consistent with about 5 W at 13.8 V.</li>
+</ul>
+<p>Keep RF leads short with a nearby ground return.</p>
+<h3 id="61-bias">6.1. Bias</h3>
+<ul>
+<li>Q6 bias is set by <strong>R49</strong> and Q4 bias by <strong>R50</strong>, both fed from the switched +9 V (present only
+  on TX).</li>
+<li>Before the first TX power-up, turn R50 (and R49) to <strong>minimum gate voltage</strong>.</li>
+<li>Into a <strong>dummy load</strong>, with the supply limited to <strong>1.5 A</strong> and <strong>no drive</strong>, key TX and raise R50
+  slowly to a Q4 idle current of about <strong>100–200 mA</strong> above the RX current. Do the same with R49
+  for Q6 (about 20–50 mA).</li>
+<li>Gate voltage should stay below about 4 V (RD16HHF1, typical V<sub>th</sub> 2–3 V). If the current
+  runs away or Q4 heats at idle, cut power and check the assembly.</li>
+</ul>
+<p>Reference: the MBPTRX procedure for its 2× RD16HHF1 stage
+(<a href="https://github.com/ianm8/MBPTRX/blob/main/PCB/README.md">https://github.com/ianm8/MBPTRX/blob/main/PCB/README.md</a>), to be scaled to a single final. Not
+validated on the X1.</p>
+
+</div>
+<div class="card">
+<h2 id="7-swr-bridge">7. SWR bridge</h2>
+<p>T1 and T2 form a <strong>tandem coupler</strong>. The parallel load resistors (R41∥R42 and R43∥R44,
+2 × 100 Ω = 50 Ω) point to the classic design:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Transformer</th>
+<th>Primary</th>
+<th>Secondary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T1</td>
+<td>1 pass (the antenna conductor goes through the toroid)</td>
+<td>10 turns</td>
+</tr>
+<tr>
+<td>T2</td>
+<td>1 pass</td>
+<td>10 turns</td>
+</tr>
+</tbody>
+</table></div>
+<p>Coupling ≈ −20 dB. The detectors are D3/D4 (1N5711WS) and the reading is digitised by the
+<strong>ADS1115</strong> (FWD on AIN0, REF on AIN1). Calibrate with a 50 Ω load and a known mismatched load.</p>
+<p><em>Earlier versions of this guide proposed 1.5/10 and 4/30 turns; they are replaced by the symmetric
+tandem, consistent with the board's load resistors.</em></p>
+
+</div>
+<div class="card">
+<h2 id="8-tx-stage-supply">8. TX stage supply</h2>
+<p>According to the schematic (sheet 3):</p>
+<ol>
+<li><strong>U11</strong> (78M09) makes <strong>+9 V</strong> from +13.8 V. It also feeds the LM386 audio amplifier, so it is
+   always fitted.</li>
+<li><code>TXENABLE</code> (PCA9555) turns on <strong>Q3</strong> (2N7002), which opens <strong>Q2</strong> (SI2301).</li>
+<li>Q2 delivers the <strong>switched +9 V</strong> to Q6's drain (through T4) and to the bias trimmers R49/R50.
+   On RX there is no voltage: the transistors are cut off.</li>
+<li><strong>Q4</strong>'s drain gets +13.8 V through T3 permanently (without bias it does not conduct).</li>
+<li><strong>Q5</strong> (µPC1678G, already fitted) is fed from the <strong><code>+5V_B</code></strong> net (Vcc and output, through FB4). That net does not
+   appear on any other schematic sheet.</li>
+</ol>
+<div class="danger">
+<p>⚠️ <strong>Before the first TX, find out with a meter where <code>+5V_B</code> comes from.</strong> The µPC1678G
+takes at most <strong>6 V</strong>: it must not get the 9 V. Also check whether <code>+5V_B</code> is present on RX or
+only on TX.</p>
+</div>
+
+</div>
+<div class="card">
+<h2 id="9-bring-up-and-verification">9. Bring-up and verification</h2>
+<ol>
+<li><strong>Visual inspection:</strong> joints, bridges, orientation of transistors and relays. <strong>Red antenna wire
+   removed.</strong></li>
+<li><strong>Continuity:</strong> no shorts between +13.8 V, +9 V, +5 V and ground.</li>
+<li><strong>Power without RF:</strong> power up with a low current limit and check +5 V, +9 V, switched +9 V (TX
+   only) and <code>+5V_B</code> (≤ 6 V).</li>
+<li><strong>Relays:</strong> change band from the firmware and confirm the right filter relay closes (table in
+   <a href="#5-low-pass-filters-lpf">§5</a>) and that RELAY-6 switches on TX.</li>
+<li><strong>RX:</strong> check that receive still works through RELAY-6 and the band filter.</li>
+<li><strong>Bias</strong> as in <a href="#61-bias">§6.1</a>.</li>
+<li><strong>TX into a dummy load:</strong> low power first and for a few seconds. Watch current, Q4 temperature
+   and SWR.</li>
+<li><strong>Tuning:</strong> raise power gradually, check harmonics with an analyser if you have one and validate
+   the SWR reading with a mismatched load.</li>
+<li><strong>Antenna:</strong> only after all of the above.</li>
+</ol>
+<p><strong>Never transmit without a load or antenna connected.</strong> The X1 Custom firmware keeps TX locked until
+«Etapa TX instalada» (TX stage fitted) is enabled in the menu, and applies a TX timeout and a high-SWR
+cut. The firmware TX <strong>has not been tested on air yet</strong>.</p>
+
+</div>
+<div class="card">
+<h2 id="10-points-to-verify">10. Points to verify</h2>
+<ul>
+<li><strong><code>+5V_B</code>:</strong> source and voltage before powering Q5 (max. 6 V). See <a href="#8-tx-stage-supply">§8</a>.</li>
+<li><strong>R49/R50:</strong> already fitted. The schematic says 4.7 kΩ, but the BOM part number (3296W-1-<strong>501</strong>)
+  is <strong>500 Ω</strong>; keep it in mind when setting the bias.</li>
+<li><strong>Q5 in the BOM:</strong> <code>PT9926-SOP8</code> is an error; the correct part is the µPC1678G.</li>
+<li><strong>Relays:</strong> HFD4/5-SR footprint. Check pinout and coil voltage before soldering.</li>
+<li><strong>T3/T4 and T1/T2 turns:</strong> estimated, not measured on this radio.</li>
+<li><strong>Q4/Q6 bias:</strong> needs a procedure and measurement.</li>
+<li><strong>Dissipation:</strong> check Q4 temperature at sustained power.</li>
+<li><strong>Board revision:</strong> this guide assumes Rev. 2.0.</li>
+</ul>
+
+</div>
+<div class="card">
+<h2 id="11-sources">11. Sources</h2>
+<ul>
+<li><strong>MBPTRX</strong> by Ian Mitchell (VK7IAN), GPL-3.0 — open reference design (schematic, BOM, Gerbers and
+  firmware): <a href="https://github.com/ianm8/MBPTRX">https://github.com/ianm8/MBPTRX</a></li>
+<li>Manufacturer's technical documentation, Rev. 2.0 (schematics) and V2 production BOM — consulted as
+  reference.</li>
+<li>HamGeek product page (TX is DIY, up to 5 W):
+  <a href="https://www.hgeek.com/products/hamgeek-raspberry-x1-full-mode-sdr-multi-band-phased-receiver-built-in-cw-codec">https://www.hgeek.com/products/hamgeek-raspberry-x1-full-mode-sdr-multi-band-phased-receiver-built-in-cw-codec</a></li>
+<li>Omron G6K-2F-Y DC5 relay data (5 V coil, 237 Ω): <a href="https://uk.rs-online.com/p/signal-relays/3650361">https://uk.rs-online.com/p/signal-relays/3650361</a></li>
+<li>Public datasheets of RD16HHF1, RD01MUS1, µPC1678G, 1N5711, HFD4, SI2301 and 2N7002.</li>
+</ul>
+</div>
+
+    </div>
+
+    <footer>
+        <p><strong>Unofficial project</strong> — not affiliated with HamGeek, the Raspberry X1
+        designer, or Raspberry Pi Ltd.</p>
+        <p>Document licensed under <a href="../LICENSE">GPL-3.0</a>. Attribution: Ian Mitchell (VK7IAN)
+        — MBPTRX. © 2026 EA7LJY. If you modify it, indicate the changes and publish the source.</p>
+        <p><a href="Tx-mod-Es.html" hreflang="es" lang="es">Versión en español</a> ·
+        <a href="../README.md">Project home</a> · <a href="README.md">Hardware index</a></p>
+    </footer>
+
+</body>
+</html>

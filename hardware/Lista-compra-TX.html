@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de compra TX</title>
+    <meta name="description" content="Lista de componentes para habilitar la transmisión en la HamGeek Raspberry X1.">
+    <meta name="author" content="EA7LJY">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --bg: #f8f9fa;
+            --text: #333;
+            --muted: #6c757d;
+            --border: #ddd;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--bg);
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        header h1 { margin: 0; font-size: 2rem; }
+        header p { margin: 0.5rem 0 0; color: #bdc3c7; }
+        header .badge {
+            display: inline-block;
+            margin: 0.75rem 0.25rem 0;
+            padding: 0.2rem 0.6rem;
+            border: 1px solid rgba(255,255,255,0.5);
+            border-radius: 999px;
+            font-size: 0.8rem;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        h2 {
+            color: var(--primary);
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+        h3 { color: var(--secondary); margin-top: 1.5rem; }
+        a { color: var(--secondary); }
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.08);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .table-wrap { overflow-x: auto; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            background: white;
+            font-size: 0.95rem;
+            min-width: 520px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+        th {
+            background-color: var(--primary);
+            color: white;
+            white-space: nowrap;
+        }
+        tbody tr:hover { background-color: #f1f1f1; }
+        .warning {
+            background-color: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        .danger {
+            background-color: #f8d7da;
+            border-left: 5px solid var(--accent);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        .info {
+            background-color: #e7f3fe;
+            border-left: 5px solid var(--secondary);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        .danger h2 { border-bottom-color: var(--accent); margin-top: 0; }
+        ul, ol { padding-left: 1.5rem; }
+        li { margin: 0.3rem 0; }
+        code {
+            background-color: #eee;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 0.9em;
+        }
+        .muted { color: var(--muted); font-size: 0.9rem; }
+        .toc { columns: 2; column-gap: 2rem; }
+        .toc li { break-inside: avoid; }
+        footer {
+            border-top: 1px solid var(--border);
+            margin-top: 2rem;
+            padding: 1.5rem 0 2.5rem;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.5rem; }
+            .toc { columns: 1; }
+            .card { padding: 1rem; }
+        }
+        @media print {
+            body { background: white; }
+            .card { box-shadow: none; border: 1px solid var(--border); }
+            .toc { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Lista de compra TX — Raspberry X1</h1>
+        <p>Componentes para habilitar la transmisión en una unidad de serie</p>
+        <span class="badge">Proyecto no oficial</span>
+        <span class="badge">por EA7LJY</span>
+        <p><a href="Tx-mod-Es.html">Guía de montaje completa</a></p>
+    </header>
+
+    <div class="container">
+<p>Lo que hay que comprar para habilitar la transmisión en una unidad de serie (solo RX). Detalles y
+montaje en la <a href="Tx-mod-Es.html">guía</a>. Las cantidades incluyen <strong>repuestos</strong> razonables.</p>
+<div class="card">
+<h2 id="imprescindible">Imprescindible</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Componente</th>
+<th>Para</th>
+<th>Necesarios</th>
+<th>Comprar</th>
+<th>Notas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RD16HHF1</strong> (Mitsubishi, TO-220)</td>
+<td>Q4, final</td>
+<td>1</td>
+<td><strong>2</strong></td>
+<td>Compra a un distribuidor fiable: abundan falsificaciones</td>
+</tr>
+<tr>
+<td><strong>Relé Hongfa HFD4/5-SR</strong> (SMD, DPDT, 5 V)</td>
+<td>RELAY-1…6</td>
+<td>6</td>
+<td><strong>7</strong></td>
+<td>LCSC C64399. Alternativa: Omron G6K-2F-Y DC5 (comprobar huella)</td>
+</tr>
+<tr>
+<td><strong>Toroide T37-2</strong> (rojo)</td>
+<td>L1–L3, L7–L9</td>
+<td>6</td>
+<td><strong>8</strong></td>
+<td>Micrometals o Amidon</td>
+</tr>
+<tr>
+<td><strong>Toroide T37-6</strong> (amarillo)</td>
+<td>L4–L6, L10–L15</td>
+<td>9</td>
+<td><strong>11</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Toroide FT37-43</strong></td>
+<td>T3, T4</td>
+<td>2</td>
+<td><strong>3</strong></td>
+<td>Ferrita mix 43</td>
+</tr>
+<tr>
+<td><strong>Toroide FT23-43</strong></td>
+<td>T1, T2</td>
+<td>2</td>
+<td><strong>3</strong></td>
+<td>Ferrita mix 43</td>
+</tr>
+<tr>
+<td><strong>Hilo esmaltado 0,4 mm</strong> (AWG 26)</td>
+<td>Bobinas LPF y T3/T4</td>
+<td>~5 m</td>
+<td><strong>10 m</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Hilo esmaltado 0,25–0,3 mm</strong> (AWG 30)</td>
+<td>Secundarios de T1/T2</td>
+<td>~1 m</td>
+<td><strong>3 m</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Condensador electrolítico 100 µF / 25 V</strong> (radial Ø5 mm, paso 2 mm)</td>
+<td>C76</td>
+<td>1</td>
+<td><strong>2</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Pasta térmica</strong> y <strong>tornillo M3</strong> con arandela</td>
+<td>Fijación de Q4</td>
+<td>1</td>
+<td>1</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+
+</div>
+<div class="card">
+<h2 id="componentes-equivalentes">Componentes equivalentes</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Original</th>
+<th>Equivalente</th>
+<th>Nota</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RD16HHF1</td>
+<td>RD15HVF1</td>
+<td>Mismo encapsulado y patillaje (compruébalo). Evita el IRF510: la aleta es el drenador y el patillaje es otro</td>
+</tr>
+<tr>
+<td>G6K-2Y-Y (esquema)</td>
+<td>Hongfa HFD4/5-SR, HFD4/5-S, Omron G6K-2F-Y DC5</td>
+<td>Bobina de 5 V. La huella de la placa es HFD4/5-SR</td>
+</tr>
+<tr>
+<td>FT37-43</td>
+<td>Fair-Rite 5943000301</td>
+<td>Mismo núcleo</td>
+</tr>
+<tr>
+<td>FT23-43</td>
+<td>Fair-Rite 5943000101</td>
+<td>Mismo núcleo</td>
+</tr>
+<tr>
+<td>T37-2 / T37-6</td>
+<td>Micrometals o Amidon T37-2 / T37-6</td>
+<td>No los sustituyas por ferrita</td>
+</tr>
+<tr>
+<td>C76 100 µF / 25 V</td>
+<td>Cualquier electrolítico radial Ø5 mm, paso 2 mm, ≥ 25 V</td>
+<td>Mejor de 105 °C</td>
+</tr>
+<tr>
+<td>1N5711WS (D3, D4)</td>
+<td>BAT54WS, SD101AWS</td>
+<td>Ya vienen montados; solo para reponer</td>
+</tr>
+</tbody>
+</table></div>
+
+</div>
+<div class="card">
+<h2 id="equipo-de-medida-si-no-lo-tienes">Equipo de medida (si no lo tienes)</h2>
+<ul>
+<li><strong>Carga fantasma</strong> de 50 Ω y al menos 10 W.</li>
+<li><strong>Vatímetro / medidor de ROE</strong> para HF.</li>
+<li><strong>Fuente de 13,8 V</strong> con límite de corriente ajustable (≥ 2 A).</li>
+<li>Opcional: <strong>NanoVNA</strong> para ajustar los filtros y el acoplador de ROE.</li>
+</ul>
+
+</div>
+<div class="card">
+<h2 id="ya-vienen-montados-no-comprar">Ya vienen montados (no comprar)</h2>
+<p>Q5 µPC1678G, Q6 RD01MUS1, C75, U11 78M09, Q2 SI2301, Q3 2N7002, D3/D4 1N5711WS, ADS1115, R49, R50 y los
+condensadores de los filtros (C47–C70).</p>
+</div>
+
+    </div>
+
+    <footer>
+        <p><strong>Proyecto no oficial</strong> — no afiliado a HamGeek, al diseñador de la Raspberry
+        X1 ni a Raspberry Pi Ltd.</p>
+        <p>Documento bajo <a href="../LICENSE">GPL-3.0</a>. Atribución: Ian Mitchell (VK7IAN) — MBPTRX.
+        © 2026 EA7LJY. Si lo modificas, indica los cambios y publica las fuentes.</p>
+        <p><a href="Tx-mod-En.html" hreflang="en" lang="en">English version</a> ·
+        <a href="../README.md">Volver al proyecto</a> · <a href="README.md">Índice de hardware</a></p>
+    </footer>
+
+</body>
+</html>
