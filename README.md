@@ -47,8 +47,7 @@ Son capturas reales de la pantalla de 320×170 del equipo, ampliadas ×3.
 
 ## Instalación
 
-1. Descarga el último `X1-Custom-<versión>.uf2` de la sección
-   [Releases](https://github.com/ea7ljy73/raspberry-x1/releases).
+1. Descarga el último `X1-Custom-<versión>.uf2` de la carpeta [`firmware/`](firmware/).
 2. Con la radio apagada, mantén pulsado el botón **BOOTSEL** de la Pico y conéctala al PC por USB.
    Aparece una unidad llamada `RP2350`.
 3. Copia el `.uf2` en esa unidad. La radio se reinicia sola con el nuevo firmware.
@@ -126,8 +125,7 @@ See the [Spanish section](#es) for more screenshots. The whole interface is avai
 
 ## Installation
 
-1. Download the latest `X1-Custom-<version>.uf2` from
-   [Releases](https://github.com/ea7ljy73/raspberry-x1/releases).
+1. Download the latest `X1-Custom-<version>.uf2` from the [`firmware/`](firmware/) folder.
 2. With the radio off, hold the Pico's **BOOTSEL** button and connect it to the PC over USB. A drive
    named `RP2350` appears.
 3. Copy the `.uf2` onto that drive. The radio restarts on its own with the new firmware.

@@ -12,7 +12,7 @@ solo se usan para identificar el equipo.
 
 ## Contenido de este repositorio
 
-- **Firmware X1 Custom:** se distribuye solo compilado (`.uf2`), en Releases. © 2026 EA7LJY, todos los
+- **Firmware X1 Custom:** se distribuye solo compilado (`.uf2`), en [`firmware/`](firmware/). © 2026 EA7LJY, todos los
   derechos reservados. Puedes usarlo y copiarlo gratis; no puedes modificarlo ni venderlo. El código
   fuente no es público.
 - **Documentación de hardware** ([`hardware/`](hardware/)): bajo [GPL-3.0](LICENSE).
@@ -63,7 +63,7 @@ identify the radio.
 
 ## Contents of this repository
 
-- **X1 Custom firmware:** distributed in compiled form only (`.uf2`), under Releases. © 2026 EA7LJY,
+- **X1 Custom firmware:** distributed in compiled form only (`.uf2`), in [`firmware/`](firmware/). © 2026 EA7LJY,
   all rights reserved. You may use and copy it free of charge; you may not modify or sell it. The
   source code is not public.
 - **Hardware documentation** ([`hardware/`](hardware/)): under [GPL-3.0](LICENSE).

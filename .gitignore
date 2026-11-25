@@ -1,4 +1,4 @@
-# Public repository: README, screenshots and hardware docs only.
+# Public repository: README, screenshots, hardware docs and released firmware binaries only.
 # The firmware source lives in a separate private repository.
 
 .DS_Store
@@ -6,12 +6,16 @@
 .vscode/
 .idea/
 
+# firmware/ holds only released binaries, their licences and its README
+firmware/*
+!firmware/README.md
+!firmware/*.uf2
+!firmware/licencias/
+
 # Never publish here: source, builds, flash dumps, manufacturer files
-firmware/
 legazy/
 entrega/
 backups/
-*.uf2
 *.elf
 *.bin
 hardware/PCB_*.html
