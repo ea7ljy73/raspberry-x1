@@ -1,5 +1,4 @@
 # Public repository: README, screenshots, hardware docs and released firmware binaries only.
-# The firmware source lives in a separate private repository.
 
 .DS_Store
 ._*
@@ -12,7 +11,7 @@ firmware/*
 !firmware/*.uf2
 !firmware/licencias/
 
-# Never publish here: source, builds, flash dumps, manufacturer files
+# Never publish here: builds, flash dumps, manufacturer files
 legazy/
 entrega/
 backups/

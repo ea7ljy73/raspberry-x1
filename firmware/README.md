@@ -4,7 +4,6 @@
 **Español** · [English](#english)
 
 En esta carpeta se publican las versiones compiladas del firmware (`.uf2`) para la Raspberry X1.
-El código fuente no es público.
 
 ## Versiones
 
@@ -32,8 +31,7 @@ modificarlo ni venderlo. Las licencias de los componentes de terceros que incluy
 
 [Español](#es) · **English**
 
-Compiled firmware releases (`.uf2`) for the Raspberry X1 are published in this folder. The source
-code is not public.
+Compiled firmware releases (`.uf2`) for the Raspberry X1 are published in this folder.
 
 ## Releases
 

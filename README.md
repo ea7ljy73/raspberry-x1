@@ -12,8 +12,6 @@ guía para añadirle la etapa de transmisión.
   <img src="docs/img/es-arranque.png" width="640" alt="Pantalla de arranque de X1 Custom">
 </p>
 
-> Se publica **solo el firmware compilado** (`.uf2`). El código fuente no es público.
-
 ---
 
 ## Capturas
@@ -94,8 +92,6 @@ to adding the transmit stage.
 <p align="center">
   <img src="docs/img/en-arranque.png" width="640" alt="X1 Custom boot screen">
 </p>
-
-> **Only the compiled firmware** (`.uf2`) is published. The source code is not public.
 
 ## Screenshots
 
