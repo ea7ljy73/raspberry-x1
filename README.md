@@ -1,5 +1,5 @@
 <a id="es"></a>
-# X1 Custom — firmware para la Raspberry X1
+# X1 GRX — firmware para la Raspberry X1
 
 **Español** · [English](#english)
 
@@ -9,7 +9,7 @@ guía para añadirle la etapa de transmisión.
 **Autor:** EA7LJY — [@ea7ljy73](https://github.com/ea7ljy73)
 
 <p align="center">
-  <img src="docs/img/es-arranque.png" width="640" alt="Pantalla de arranque de X1 Custom">
+  <img src="docs/img/es-arranque.png" width="640" alt="Pantalla de arranque de X1 GRX">
 </p>
 
 ---
@@ -45,7 +45,7 @@ Son capturas reales de la pantalla de 320×170 del equipo, ampliadas ×3.
 
 ## Instalación
 
-1. Descarga el último `X1-Custom-<versión>.uf2` de la carpeta [`firmware/`](firmware/).
+1. Descarga el último `X1-GRX-<versión>.uf2` de la carpeta [`firmware/`](firmware/).
 2. Con la radio apagada, mantén pulsado el botón **BOOTSEL** de la Pico y conéctala al PC por USB.
    Aparece una unidad llamada `RP2350`.
 3. Copia el `.uf2` en esa unidad. La radio se reinicia sola con el nuevo firmware.
@@ -60,7 +60,7 @@ En [`hardware/`](hardware/) tienes:
 
 ## Licencia
 
-- **Firmware X1 Custom (binario):** © 2026 EA7LJY, todos los derechos reservados. Puedes usarlo y
+- **Firmware X1 GRX (binario):** © 2026 EA7LJY, todos los derechos reservados. Puedes usarlo y
   copiarlo gratis, sin modificarlo ni venderlo.
 - **Componentes de terceros:** el binario incluye ft8_lib (MIT), kiss_fft (BSD), TFT_eSPI, el core
   arduino-pico (LGPL-2.1) y el Pico SDK (BSD-3-Clause). Sus licencias se entregan con cada versión.
@@ -80,7 +80,7 @@ vatímetro.
 ---
 
 <a id="english"></a>
-# X1 Custom — firmware for the Raspberry X1
+# X1 GRX — firmware for the Raspberry X1
 
 [Español](#es) · **English**
 
@@ -90,7 +90,7 @@ to adding the transmit stage.
 **Author:** EA7LJY — [@ea7ljy73](https://github.com/ea7ljy73)
 
 <p align="center">
-  <img src="docs/img/en-arranque.png" width="640" alt="X1 Custom boot screen">
+  <img src="docs/img/en-arranque.png" width="640" alt="X1 GRX boot screen">
 </p>
 
 ## Screenshots
@@ -121,7 +121,7 @@ See the [Spanish section](#es) for more screenshots. The whole interface is avai
 
 ## Installation
 
-1. Download the latest `X1-Custom-<version>.uf2` from the [`firmware/`](firmware/) folder.
+1. Download the latest `X1-GRX-<version>.uf2` from the [`firmware/`](firmware/) folder.
 2. With the radio off, hold the Pico's **BOOTSEL** button and connect it to the PC over USB. A drive
    named `RP2350` appears.
 3. Copy the `.uf2` onto that drive. The radio restarts on its own with the new firmware.
@@ -136,7 +136,7 @@ To go back to the factory firmware, repeat the steps with the manufacturer's ori
 
 ## Licence
 
-- **X1 Custom firmware (binary):** © 2026 EA7LJY, all rights reserved. You may use and copy it free
+- **X1 GRX firmware (binary):** © 2026 EA7LJY, all rights reserved. You may use and copy it free
   of charge; you may not modify or sell it.
 - **Third-party components:** the binary includes ft8_lib (MIT), kiss_fft (BSD), TFT_eSPI, the
   arduino-pico core (LGPL-2.1) and the Pico SDK (BSD-3-Clause). Their licences ship with every

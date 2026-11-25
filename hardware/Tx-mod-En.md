@@ -145,7 +145,7 @@ derived from its cut-off frequency, calculated from the schematic values
 | RELAY-2 | BAND4 | **30–20 m** | T37-6: L4 16, L5 17, L6 16 | 0.77 / 0.87 / 0.77 µH | C51 180p, C52 390p, C53 390p, C54 180p | 17 MHz |
 | RELAY-4 | BAND5 | **17–10 m** | T37-6: L10 10, L11 11, L12 10 | 0.30 / 0.36 / 0.30 µH | C59 120p, C60 220p, C61 220p, C62 120p | 36 MHz |
 
-> Relay numbering **does not follow band order**. The X1 Custom firmware already uses this mapping
+> Relay numbering **does not follow band order**. The X1 GRX firmware already uses this mapping
 > (LPF1 = 160 m, LPF2 = 80 m, LPF3 = 40 m, LPF4 = 30–20 m, LPF5 = 17–10 m).
 >
 > *Correction to earlier versions of this guide, which shifted the bands by one position
@@ -234,7 +234,7 @@ According to the schematic (sheet 3):
    the SWR reading with a mismatched load.
 9. **Antenna:** only after all of the above.
 
-**Never transmit without a load or antenna connected.** The X1 Custom firmware keeps TX locked until
+**Never transmit without a load or antenna connected.** The X1 GRX firmware keeps TX locked until
 «Etapa TX instalada» (TX stage fitted) is enabled in the menu, and applies a TX timeout and a high-SWR
 cut. The firmware TX **has not been tested on air yet**.
 

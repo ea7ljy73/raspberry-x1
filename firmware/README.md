@@ -1,5 +1,5 @@
 <a id="es"></a>
-# Firmware X1 Custom
+# Firmware X1 GRX
 
 **Español** · [English](#english)
 
@@ -27,7 +27,7 @@ modificarlo ni venderlo. Las licencias de los componentes de terceros que incluy
 ---
 
 <a id="english"></a>
-# X1 Custom firmware
+# X1 GRX firmware
 
 [Español](#es) · **English**
 

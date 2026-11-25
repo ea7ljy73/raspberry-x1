@@ -5,14 +5,14 @@
 
 ## Independencia
 
-**X1 Custom** es un proyecto independiente de **EA7LJY** ([@ea7ljy73](https://github.com/ea7ljy73)).
+**X1 GRX** es un proyecto independiente de **EA7LJY** ([@ea7ljy73](https://github.com/ea7ljy73)).
 No está afiliado, patrocinado ni respaldado por HamGeek, por el diseñador de la Raspberry X1 ni por
 Raspberry Pi Ltd. Las marcas «HamGeek», «Raspberry Pi» y «Raspberry X1» pertenecen a sus titulares y
 solo se usan para identificar el equipo.
 
 ## Contenido de este repositorio
 
-- **Firmware X1 Custom:** se distribuye compilado (`.uf2`) en [`firmware/`](firmware/). © 2026 EA7LJY, todos los
+- **Firmware X1 GRX:** se distribuye compilado (`.uf2`) en [`firmware/`](firmware/). © 2026 EA7LJY, todos los
   derechos reservados. Puedes usarlo y copiarlo gratis; no puedes modificarlo ni venderlo.
 - **Documentación de hardware** ([`hardware/`](hardware/)): bajo [GPL-3.0](LICENSE).
 - **Capturas** ([`docs/img/`](docs/img/)): pantallas reales del firmware.
@@ -55,14 +55,14 @@ errores** derivados de su uso.
 
 ## Independence
 
-**X1 Custom** is an independent project by **EA7LJY** ([@ea7ljy73](https://github.com/ea7ljy73)). It is
+**X1 GRX** is an independent project by **EA7LJY** ([@ea7ljy73](https://github.com/ea7ljy73)). It is
 not affiliated with, sponsored by or endorsed by HamGeek, the Raspberry X1 designer or Raspberry Pi
 Ltd. "HamGeek", "Raspberry Pi" and "Raspberry X1" are trademarks of their owners and are used only to
 identify the radio.
 
 ## Contents of this repository
 
-- **X1 Custom firmware:** distributed compiled (`.uf2`) in [`firmware/`](firmware/). © 2026 EA7LJY,
+- **X1 GRX firmware:** distributed compiled (`.uf2`) in [`firmware/`](firmware/). © 2026 EA7LJY,
   all rights reserved. You may use and copy it free of charge; you may not modify or sell it.
 - **Hardware documentation** ([`hardware/`](hardware/)): under [GPL-3.0](LICENSE).
 - **Screenshots** ([`docs/img/`](docs/img/)): real firmware screens.
