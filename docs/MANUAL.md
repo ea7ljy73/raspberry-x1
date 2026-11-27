@@ -136,8 +136,6 @@ que puedes pegar en tu programa de log.
 
 ## 8. Problemas conocidos (0.1.0-dev)
 
-- A veces, la primera respuesta que llega justo después de un envío propio en la pantalla de CW sale
-  mal decodificada.
 - Con mucho ruido aún puede colarse alguna ráfaga corta de letras.
 - El audio de CW suena algo «ronco»; está pendiente de revisar.
 
@@ -278,6 +276,5 @@ into your logging program.
 
 ## 8. Known issues (0.1.0-dev)
 
-- The first reply that arrives right after your own CW sending is sometimes garbled.
 - On a very noisy band a short burst of letters can still get through.
 - CW audio sounds somewhat "hoarse"; still to be looked at.
