@@ -18,6 +18,8 @@ En esta carpeta se publican las versiones compiladas del firmware (`.uf2`) para 
    Aparece una unidad llamada `RP2350`.
 3. Copia el `.uf2` en esa unidad. La radio se reinicia sola con el nuevo firmware.
 
+Cómo se usa: [manual de uso](../docs/MANUAL.md).
+
 ## Licencia
 
 © 2026 EA7LJY, todos los derechos reservados. Puedes usar y copiar el firmware gratis; no puedes
@@ -45,6 +47,8 @@ Compiled firmware releases (`.uf2`) for the Raspberry X1 are published in this f
 2. With the radio off, hold the Pico's **BOOTSEL** button and connect it to the PC over USB. A drive
    named `RP2350` appears.
 3. Copy the `.uf2` onto that drive. The radio restarts on its own with the new firmware.
+
+How to use it: [user manual](../docs/MANUAL.md#english).
 
 ## Licence
 

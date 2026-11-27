@@ -57,6 +57,14 @@ Son capturas reales de la pantalla de 320×170 del equipo, ampliadas ×3.
 
 Para volver al firmware de fábrica, repite los pasos con el `.uf2` original del fabricante.
 
+La versión actual (0.1.0-dev) está en pruebas; cuando se publique, aparecerá en
+[`firmware/`](firmware/).
+
+## Manual de uso
+
+El [**manual de uso**](docs/MANUAL.md) explica los mandos, el menú, la pantalla de QSO en CW, el
+entrenador de CW, FT8 y el libro de guardia.
+
 ## Modificación TX
 
 En [`hardware/`](hardware/) tienes:
@@ -137,6 +145,14 @@ See the [Spanish section](#es) for more screenshots. The whole interface is avai
 3. Copy the `.uf2` onto that drive. The radio restarts on its own with the new firmware.
 
 To go back to the factory firmware, repeat the steps with the manufacturer's original `.uf2`.
+
+The current version (0.1.0-dev) is being tested; once released it will appear in
+[`firmware/`](firmware/).
+
+## User manual
+
+The [**user manual**](docs/MANUAL.md#english) covers the controls, the menu, the CW QSO screen, the
+CW trainer, FT8 and the logbook.
 
 ## TX modification
 
