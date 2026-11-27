@@ -26,6 +26,8 @@ Son capturas reales de la pantalla de 320×170 del equipo, ampliadas ×3.
 | **CQ automático:** llama y contesta solo | **QSO automático:** eliges una estación y el intercambio se completa solo |
 | ![Menú](docs/img/es-menu.png) | ![Acerca de](docs/img/es-about.png) |
 | **Menú** en español o inglés | **Acerca de:** versión y datos de la estación |
+| ![Pantalla de QSO en CW](docs/img/es-cw-qso.png) | |
+| **QSO en CW:** decodificación en pantalla (blanco, lo recibido; naranja, lo enviado) y macros CQ / LLAMA / 599 / 73 / LOG | |
 
 ## Funciones
 
@@ -33,7 +35,10 @@ Son capturas reales de la pantalla de 320×170 del equipo, ampliadas ×3.
 - **Espectro y cascada:** ancho de 15,6 a 1 kHz, siempre centrados en el dial.
 - **Procesado de audio:** AGC de tres velocidades, supresor de ruido (NB), reductor de ruido (NR)
   y notch automático.
-- **CW:** decodificador de CW en pantalla.
+- **CW:** decodificador en pantalla y pantalla propia para hacer QSO: la conversación (lo recibido
+  y lo enviado), macros CQ / llamada / 599 / 73 con los indicativos ya puestos y anotación en el
+  libro. **Entrenador de CW:** ejercicios para copiar de oído (letras, mixto, indicativos, palabras
+  de QSO) y práctica de manipulación con las palas, con la velocidad medida. Sin transmitir.
 - **FT8:** monitor con hora UTC y país de cada estación. El QSO puede ser automático (CQ o
   respuesta a una estación) o manual.
 - **Libro de guardia** en la propia radio, exportable en formato ADIF por USB.
@@ -101,6 +106,8 @@ These are real captures of the radio's 320×170 display, scaled ×3.
 | --- | --- |
 | ![FT8 monitor](docs/img/en-ft8.png) | ![About](docs/img/en-about.png) |
 | **FT8:** continuous decoding with each station's country | **About:** version and station data |
+| ![CW QSO screen](docs/img/es-cw-qso.png) | |
+| **CW QSO:** on-screen decoding (white received, orange sent) and CQ / call / 599 / 73 / log macros | |
 
 See the [Spanish section](#es) for more screenshots. The whole interface is available in English:
 **Menu → Idioma / Language**.
@@ -110,7 +117,10 @@ See the [Spanish section](#es) for more screenshots. The whole interface is avai
 - **Modes:** LSB, USB, CW, AM, FM, digital (DGL/DGU) and FT8.
 - **Spectrum and waterfall:** span from 15.6 down to 1 kHz, always centred on the dial.
 - **Audio processing:** three-speed AGC, noise blanker (NB), noise reduction (NR) and auto notch.
-- **CW:** on-screen CW decoder.
+- **CW:** on-screen decoder and a QSO screen of its own: the conversation (received and sent),
+  CQ / call / 599 / 73 macros with the callsigns filled in, and logging. **CW trainer:** drills to
+  copy by ear (letters, mixed, callsigns, QSO words) and paddle practice with the measured speed.
+  Nothing is transmitted.
 - **FT8:** monitor with UTC time and each station's country. QSOs can be automatic (calling CQ or
   answering a station) or manual.
 - **Logbook** stored in the radio, exported as ADIF over USB.
